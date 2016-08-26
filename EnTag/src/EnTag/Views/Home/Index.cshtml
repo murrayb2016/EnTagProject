@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="EnTag">
+<head>
+    <title>EnTag</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/lib/angular-material/angular-material.min.css" rel="stylesheet" />
+
+    <!-- Library Files -->
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.js"></script>
+    <script src="~/lib/angular-animate/angular-animate.js"></script>
+    <script src="~/lib/angular-touch/angular-touch.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/lib/angular-material/angular-material.js"></script>
+    <script src="~/scripts/twitterWindow.js"></script>
+    <script src="~/lib/angular-aria/angular-aria.js"></script>
+    <script src="~/lib/angular-messages/angular-messages.js"></script>
+
+    <!-- App Files-->
+    <script src="~/ngapp/app.js"></script>
+    <script src="~/ngapp/controllers/controllers.js"></script>
+    <script src="~/ngApp/controllers/altControllers.js"></script>
+    <script src="~/ngapp/services/services.js"></script>
+    <script src="~/ngApp/services/twitchService.js"></script>
+    <script src="~/ngApp/services/twitterService.js"></script>
+
+    <!-- Security -->
+    <script src="~/ngapp/controllers/accountcontroller.js"></script>
+    <script src="~/ngapp/services/accountservice.js"></script>
+
+    <script src="~/lib/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <base href="/" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+<body ng-controller="AccountController as account">
+    <div class="container header">
+        <div class="flex-row f-jc-sb">
+            <h1 class="logo">EnTag</h1>
+            <div class="flex-row f-jc-fe margintop">
+                <div class="username fontcolor" ng-show="account.isLoggedIn()">
+                    {{account.getUserName()}}
+                </div>
+                <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+                <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <ui-view></ui-view>
+</body>
+</html>
